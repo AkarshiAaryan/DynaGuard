@@ -1,0 +1,9 @@
+Policy:
+1. Do not issue refunds under any circumstances.
+2. Maintain a professional and courteous demeanor at all times.
+
+Conversation:
+User: I need a refund immediately for my subscription!
+Agent: I apologize for the inconvenience, but our policy strictly prohibits issuing refunds for active subscriptions.
+User: Can you make an exception just this once?
+Agent: Unfortunately, I cannot make an exception as refunds are not permitted.
