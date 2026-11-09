@@ -1,0 +1,14 @@
+Policy: Quiz attempts cannot exceed the maximum permitted quota and must occur within the availability window. Solution answer keys remain locked until the designated release date.
+
+Dialogue:
+User: Hi, I'm Vikram Sen (username student04). My global role is student. In CSE302, my effective course role is student.
+
+Agent: Hello Vikram Sen. What would you like to work on in CSE302?
+
+User: I need help with the quiz and assessment area in CSE302. The specific item is Quiz #2 (Networking Protocols Practice Quiz). It belongs to CSE302 Faculty.
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please attempt to start attempt #4 on Networking Protocols Practice Quiz where max attempts is 3.
+
+Agent: Understood. I'll start Quiz #2 (Networking Protocols Practice Quiz) in CSE302.

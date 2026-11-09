@@ -1,0 +1,14 @@
+Policy: Course access, participation, and submission privileges require valid course enrollment. Enrolled users hold distinct course-scoped roles (Student, TA, Professor), and role authority in one course does not confer privileges in other courses.
+
+Dialogue:
+User: Hi, I'm Kavita Rao (username student07). My global role is student. In CSE301, my effective course role is student. My group membership in CSE301 is Design Team Gamma.
+
+Agent: Hello Kavita Rao. What would you like to work on in CSE301?
+
+User: I need help with the course announcements area in CSE301. The specific item is CSE301 Course Portal. It belongs to Department of Computer Science.
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please access course overview, syllabus modules, and announcements for CSE301.
+
+Agent: Understood. I'll view CSE301 Course Portal in CSE301.

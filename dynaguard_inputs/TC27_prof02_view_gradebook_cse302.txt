@@ -1,0 +1,14 @@
+Policy: Students may only inspect their own individual grades. Class-wide gradebooks are strictly confidential to course faculty and assigned teaching assistants.
+
+Dialogue:
+User: Hi, I'm Dr Kabir Rao (username prof02). My global role is professor. In CSE302, my effective course role is professor.
+
+Agent: Hello Dr Kabir Rao. What would you like to work on in CSE302?
+
+User: I need help with the gradebook and student performance area in CSE302. The specific item is CSE302 Gradebook. It is associated with Course Roster.
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please inspect CSE302 full class gradebook and student submissions.
+
+Agent: Understood. I'll view CSE302 Gradebook in CSE302.

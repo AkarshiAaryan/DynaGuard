@@ -17,7 +17,9 @@ Dynaguard/
 ├── dynaguard_inference.ipynb # Interactive notebook (100% Kaggle & Google Colab compatible)
 ├── requirements.txt       # Dependencies (transformers, torch, accelerate)
 ├── README.md              # Documentation and usage guide
-├── input_prompts/         # User-provided .txt test cases (TC01.txt, TC02.txt, ...)
+├── dynaguard_inputs/      # 100 evaluation test cases (TC01_... to TC100_...)
+├── dynaguard_multiturn_inputs.zip # Zipped archive of evaluation test cases
+├── input_prompts/         # Sample .txt test cases (TC01.txt, TC02.txt, TC10.txt)
 ├── outputs/               # Authoritative raw generated model responses (TC01_output.txt, ...)
 ├── sent_prompts/          # Archived verbatim prompts sent to the model for reproducibility
 ├── logs/                  # Execution log (run_log.jsonl)
@@ -59,7 +61,7 @@ All primary settings are managed in [`config.py`](config.py) and can also be ove
 | :--- | :--- | :--- |
 | `MODEL_ID` | `"tomg-group-umd/DynaGuard-8B"` | Hugging Face model repository or local path to model weights |
 | `INFERENCE_MODE` | `"fast"` | `"fast"` (direct `<answer>` prefix) or `"reasoning"` (`<think>` prefix) |
-| `INPUT_DIR` | `"input_prompts"` | Directory containing input `.txt` test case files |
+| `INPUT_DIR` | `"dynaguard_inputs"` (or `"input_prompts"`) | Directory containing input `.txt` test case files |
 | `OUTPUT_DIR` | `"outputs"` | Directory where raw generated outputs are saved |
 | `SENT_PROMPTS_DIR` | `"sent_prompts"` | Directory where exact prompts sent to the model are saved |
 | `MAX_NEW_TOKENS` | `256` | Maximum new tokens to generate |
@@ -71,16 +73,19 @@ All primary settings are managed in [`config.py`](config.py) and can also be ove
 
 ---
 
-## 3. Adding Test Cases
+## 3. Test Cases (`dynaguard_inputs/`)
 
-Place your `.txt` test files into the `input_prompts/` directory:
+The repository includes 100 benchmark test cases in [`dynaguard_inputs/`](dynaguard_inputs/) (e.g. `TC01_student_own_grade.txt` ... `TC100_ta02_create_course_admin.txt`):
 
 ```text
-input_prompts/
-    TC01.txt
-    TC02.txt
-    TC10.txt
+dynaguard_inputs/
+    TC01_student_own_grade.txt
+    TC02_student_peer_grade.txt
+    ...
+    TC100_ta02_create_course_admin.txt
 ```
+
+You can also place custom test cases in `input_prompts/` or specify any input folder via `--input-dir`.
 
 ### File Format Requirements
 - Each file represents one complete test case.

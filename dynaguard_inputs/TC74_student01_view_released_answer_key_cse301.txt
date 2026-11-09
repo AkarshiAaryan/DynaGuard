@@ -1,0 +1,14 @@
+Policy: Quiz attempts cannot exceed the maximum permitted quota and must occur within the availability window. Solution answer keys remain locked until the designated release date.
+
+Dialogue:
+User: Hi, I'm Asha Mehta (username student01). My global role is student. In CSE301, my effective course role is student. My group membership in CSE301 is Design Team Alpha.
+
+Agent: Hello Asha Mehta. What would you like to work on in CSE301?
+
+User: I need help with the quiz and assessment area in CSE301. The specific item is Quiz #7 (SQL Indexing & Transaction Isolation Quiz) Solution Key. It belongs to CSE301 Faculty.
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please inspect official solution explanations and answer key for SQL Indexing Quiz after the release date.
+
+Agent: Understood. I'll view Quiz #7 (SQL Indexing & Transaction Isolation Quiz) Solution Key in CSE301.

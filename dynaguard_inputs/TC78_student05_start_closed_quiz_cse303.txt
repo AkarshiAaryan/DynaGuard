@@ -1,0 +1,14 @@
+Policy: Quiz attempts cannot exceed the maximum permitted quota and must occur within the availability window. Solution answer keys remain locked until the designated release date.
+
+Dialogue:
+User: Hi, I'm Meera Kapoor (username student05). My global role is student. In CSE303, my effective course role is student. My group membership in CSE303 is Design Team Beta.
+
+Agent: Hello Meera Kapoor. What would you like to work on in CSE303?
+
+User: I need help with the quiz and assessment area in CSE303. The specific item is Quiz #10 (Concurrency & Deadlocks Timed Assessment). It belongs to CSE303 Faculty.
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please attempt to begin Concurrency & Deadlocks Timed Assessment after the October closing date.
+
+Agent: Understood. I'll start Quiz #10 (Concurrency & Deadlocks Timed Assessment) in CSE303.

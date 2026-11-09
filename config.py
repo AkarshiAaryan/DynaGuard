@@ -17,7 +17,13 @@ TORCH_DTYPE = "auto"
 # ==============================================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-INPUT_DIR = os.path.join(BASE_DIR, "input_prompts")
+# Use dynaguard_inputs if it exists, fallback to input_prompts
+_default_input = (
+    os.path.join(BASE_DIR, "dynaguard_inputs")
+    if os.path.isdir(os.path.join(BASE_DIR, "dynaguard_inputs"))
+    else os.path.join(BASE_DIR, "input_prompts")
+)
+INPUT_DIR = os.environ.get("DYNAGUARD_INPUT_DIR", _default_input)
 OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
 SENT_PROMPTS_DIR = os.path.join(BASE_DIR, "sent_prompts")
 LOGS_DIR = os.path.join(BASE_DIR, "logs")

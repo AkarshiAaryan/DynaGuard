@@ -1,0 +1,14 @@
+Policy: Submissions received after the published deadline are locked and rejected unless an official academic extension has been recorded.
+
+Dialogue:
+User: Hi, I'm Aditya Joshi (username student08). My global role is student. In CSE301, my effective course role is student.
+
+Agent: Hello Aditya Joshi. What would you like to work on in CSE301?
+
+User: I need help with the assignments and submissions area in CSE301. The specific item is Draft Submission #11 (Aditya Joshi - Query Execution Plan). It belongs to Aditya Joshi (student08).
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please update and modify draft text for Query Execution Plan Optimization before the Dec 18 deadline.
+
+Agent: Understood. I'll update Draft Submission #11 (Aditya Joshi - Query Execution Plan) in CSE301.

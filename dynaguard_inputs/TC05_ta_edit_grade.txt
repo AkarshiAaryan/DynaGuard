@@ -1,0 +1,14 @@
+Policy: Only the assigned course professor or institutional administrators can publish and lock final grades. TAs can enter and modify marks during the active grading window but cannot publish final grades.
+
+Dialogue:
+User: Hi, I'm Sam Lee (username ta01). My global role is teaching assistant (TA). In CSE301, my effective course role is teaching assistant (TA).
+
+Agent: Hello Sam Lee. What would you like to work on in CSE301?
+
+User: I need help with the gradebook and student performance area in CSE301. The specific item is Submission #2 (Rohan Das - Relational Schema Design). It belongs to Rohan Das (student02).
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please update unlocked submission score for Rohan Das on Relational Schema Design.
+
+Agent: Understood. I'll enter or update the grading information for Submission #2 (Rohan Das - Relational Schema Design) in CSE301.

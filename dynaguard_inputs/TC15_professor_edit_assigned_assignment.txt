@@ -1,0 +1,14 @@
+Policy: Course access, participation, and submission privileges require valid course enrollment. Enrolled users hold distinct course-scoped roles (Student, TA, Professor), and role authority in one course does not confer privileges in other courses.
+
+Dialogue:
+User: Hi, I'm Dr Mira Shah (username prof01). My global role is professor. In CSE301, my effective course role is professor.
+
+Agent: Hello Dr Mira Shah. What would you like to work on in CSE301?
+
+User: I need help with the assignments and submissions area in CSE301. The specific item is Assignment #1 (Relational Schema Design & SQL Queries). It belongs to CSE301 Faculty.
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please edit assignment specifications and deadline for Relational Schema Design in CSE301.
+
+Agent: Understood. I'll update Assignment #1 (Relational Schema Design & SQL Queries) in CSE301.

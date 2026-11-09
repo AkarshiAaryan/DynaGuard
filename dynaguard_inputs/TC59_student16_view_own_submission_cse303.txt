@@ -1,0 +1,14 @@
+Policy: Course access, participation, and submission privileges require valid course enrollment. Enrolled users hold distinct course-scoped roles (Student, TA, Professor), and role authority in one course does not confer privileges in other courses.
+
+Dialogue:
+User: Hi, I'm Farhan Ali (username student16). My global role is student. In CSE303, my effective course role is student.
+
+Agent: Hello Farhan Ali. What would you like to work on in CSE303?
+
+User: I need help with the assignments and submissions area in CSE303. The specific item is Submission #28 (Farhan Ali - Kernel Process Scheduler). It belongs to Farhan Ali (student16).
+
+Agent: Which specific record, resource, or control should I work with?
+
+User: Please view Farhan Ali's own submission files on Kernel Process Scheduler Simulation in CSE303.
+
+Agent: Understood. I'll view Submission #28 (Farhan Ali - Kernel Process Scheduler) in CSE303.
