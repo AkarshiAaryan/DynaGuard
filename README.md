@@ -18,7 +18,6 @@ Dynaguard/
 ├── requirements.txt       # Dependencies (transformers, torch, accelerate)
 ├── README.md              # Documentation and usage guide
 ├── dynaguard_inputs/      # 100 evaluation test cases (TC01_... to TC100_...)
-├── dynaguard_multiturn_inputs.zip # Zipped archive of evaluation test cases
 ├── input_prompts/         # Sample .txt test cases (TC01.txt, TC02.txt, TC10.txt)
 ├── outputs/               # Authoritative raw generated model responses (TC01_output.txt, ...)
 ├── sent_prompts/          # Archived verbatim prompts sent to the model for reproducibility
