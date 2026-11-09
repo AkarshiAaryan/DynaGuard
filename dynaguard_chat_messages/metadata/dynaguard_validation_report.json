@@ -1,0 +1,2030 @@
+{
+  "source_archive": "slm_inputs(1).zip",
+  "source_markdown_files": 100,
+  "generated_cases": 100,
+  "case_ids_complete": true,
+  "messages_per_case": [
+    6
+  ],
+  "roles_per_case": [
+    "user",
+    "assistant",
+    "user",
+    "assistant",
+    "user",
+    "assistant"
+  ],
+  "message_arrays_only_in_individual_json": true,
+  "all_source_field_checks_passed": true,
+  "cases": [
+    {
+      "test_case_id": "TC01",
+      "source_file": "TC01_student_own_grade.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC02",
+      "source_file": "TC02_student_peer_grade.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC03",
+      "source_file": "TC03_student_class_gradebook.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC04",
+      "source_file": "TC04_ta_class_gradebook.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC05",
+      "source_file": "TC05_ta_edit_grade.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC06",
+      "source_file": "TC06_ta_as_student_in_other_course.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC07",
+      "source_file": "TC07_ta_view_cse302_submissions.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC08",
+      "source_file": "TC08_ta_view_hci401_submissions.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC09",
+      "source_file": "TC09_student_edit_own_draft.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC10",
+      "source_file": "TC10_student_edit_after_deadline.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC11",
+      "source_file": "TC11_student_view_peer_submission.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC12",
+      "source_file": "TC12_student_start_early_quiz.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC13",
+      "source_file": "TC13_student_start_open_quiz.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC14",
+      "source_file": "TC14_student_view_unreleased_answer_key.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC15",
+      "source_file": "TC15_professor_edit_assigned_assignment.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC16",
+      "source_file": "TC16_professor_edit_unassigned_course.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC17",
+      "source_file": "TC17_professor_publish_grades.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC18",
+      "source_file": "TC18_ta_publish_grades.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC19",
+      "source_file": "TC19_student_view_other_group_submission.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC20",
+      "source_file": "TC20_admin_manage_users.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC21",
+      "source_file": "TC21_student_own_grade_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC22",
+      "source_file": "TC22_student_peer_grade_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC23",
+      "source_file": "TC23_student_class_gradebook_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC24",
+      "source_file": "TC24_ta03_class_gradebook_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC25",
+      "source_file": "TC25_ta04_class_gradebook_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC26",
+      "source_file": "TC26_ta04_student_role_view_gradebook_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC27",
+      "source_file": "TC27_prof02_view_gradebook_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC28",
+      "source_file": "TC28_prof01_view_gradebook_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC29",
+      "source_file": "TC29_ta02_update_unlocked_grade_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC30",
+      "source_file": "TC30_ta02_update_locked_grade_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC31",
+      "source_file": "TC31_prof01_grade_student_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC32",
+      "source_file": "TC32_student14_view_gradebook_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC33",
+      "source_file": "TC33_student01_own_grade_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC34",
+      "source_file": "TC34_student07_access_enrolled_course_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC35",
+      "source_file": "TC35_student14_access_unenrolled_course_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC36",
+      "source_file": "TC36_student14_access_enrolled_course_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC37",
+      "source_file": "TC37_ta03_access_staff_overview_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC38",
+      "source_file": "TC38_ta03_attempt_staff_action_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC39",
+      "source_file": "TC39_ta01_post_announcement_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC40",
+      "source_file": "TC40_prof01_post_announcement_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC41",
+      "source_file": "TC41_prof01_post_announcement_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC42",
+      "source_file": "TC42_prof02_access_management_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC43",
+      "source_file": "TC43_student01_post_announcement_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC44",
+      "source_file": "TC44_student02_access_course_portal_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC45",
+      "source_file": "TC45_ta04_access_staff_dashboard_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC46",
+      "source_file": "TC46_ta04_attempt_staff_management_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC47",
+      "source_file": "TC47_student03_view_own_submission_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC48",
+      "source_file": "TC48_student03_view_peer_submission_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC49",
+      "source_file": "TC49_ta03_view_submissions_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC50",
+      "source_file": "TC50_ta01_view_submissions_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC51",
+      "source_file": "TC51_prof01_view_submissions_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC52",
+      "source_file": "TC52_prof01_view_submissions_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC53",
+      "source_file": "TC53_student07_view_own_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC54",
+      "source_file": "TC54_student07_view_other_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC55",
+      "source_file": "TC55_student09_view_own_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC56",
+      "source_file": "TC56_student09_view_team_alpha_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC57",
+      "source_file": "TC57_ta02_view_team_gamma_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC58",
+      "source_file": "TC58_prof02_view_team_delta_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC59",
+      "source_file": "TC59_student16_view_own_submission_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC60",
+      "source_file": "TC60_student08_edit_draft_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC61",
+      "source_file": "TC61_student10_edit_past_deadline_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC62",
+      "source_file": "TC62_student12_edit_with_extension_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC63",
+      "source_file": "TC63_student14_submit_coursework_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC64",
+      "source_file": "TC64_ta01_create_assignment_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC65",
+      "source_file": "TC65_ta01_edit_assignment_parameters_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC66",
+      "source_file": "TC66_student01_edit_assignment_instructions_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC67",
+      "source_file": "TC67_prof01_edit_assignment_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC68",
+      "source_file": "TC68_prof02_edit_assignment_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC69",
+      "source_file": "TC69_student01_edit_locked_submission_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC70",
+      "source_file": "TC70_student01_start_closed_quiz_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC71",
+      "source_file": "TC71_student04_start_exhausted_quiz_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC72",
+      "source_file": "TC72_student02_start_remaining_attempt_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC73",
+      "source_file": "TC73_student03_start_early_quiz_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC74",
+      "source_file": "TC74_student01_view_released_answer_key_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC75",
+      "source_file": "TC75_ta02_view_unreleased_answer_key_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC76",
+      "source_file": "TC76_ta03_view_quiz_attempts_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC77",
+      "source_file": "TC77_student02_view_peer_quiz_attempt_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC78",
+      "source_file": "TC78_student05_start_closed_quiz_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC79",
+      "source_file": "TC79_student01_view_study_guide_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC80",
+      "source_file": "TC80_student01_view_staff_rubric_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC81",
+      "source_file": "TC81_student01_view_staff_answer_key_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC82",
+      "source_file": "TC82_ta01_view_staff_rubric_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC83",
+      "source_file": "TC83_ta01_view_staff_answer_key_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC84",
+      "source_file": "TC84_prof01_view_staff_criteria_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC85",
+      "source_file": "TC85_ta01_view_staff_rubric_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC86",
+      "source_file": "TC86_student14_view_syllabus_cse301.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC87",
+      "source_file": "TC87_student04_view_cheatsheet_cse302.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC88",
+      "source_file": "TC88_ta03_view_grading_suite_cse303.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC89",
+      "source_file": "TC89_student03_view_own_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC90",
+      "source_file": "TC90_student03_view_team_beta_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC91",
+      "source_file": "TC91_student06_view_own_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC92",
+      "source_file": "TC92_student06_view_team_alpha_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC93",
+      "source_file": "TC93_student11_view_own_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC94",
+      "source_file": "TC94_student13_view_own_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC95",
+      "source_file": "TC95_student15_edit_other_group_submission_hci401.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC96",
+      "source_file": "TC96_prof01_access_admin_console.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC97",
+      "source_file": "TC97_ta01_access_admin_console.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC98",
+      "source_file": "TC98_student01_access_admin_console.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC99",
+      "source_file": "TC99_prof02_modify_user_admin.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    },
+    {
+      "test_case_id": "TC100",
+      "source_file": "TC100_ta02_create_course_admin.md",
+      "checks": {
+        "actor_name": true,
+        "username": true,
+        "global_role": true,
+        "effective_role": true,
+        "course": true,
+        "group": true,
+        "task": true,
+        "operation": true,
+        "target_resource": true,
+        "target_owner": true,
+        "policy_text": true,
+        "alternating_roles": true,
+        "multi_turn": true
+      },
+      "all_passed": true
+    }
+  ],
+  "notes": [
+    "Every individual JSON file contains a role/content message array directly usable as pipe(messages).",
+    "The master JSON contains test_case_id, source_file, and messages for each source case.",
+    "Policy text is the first line of the first user message.",
+    "Names, usernames, global roles, effective course roles, courses, group memberships, task requests, operations, target resources, target owners, and policy text are checked against the original Markdown source.",
+    "A compact subset of relevant LMS page state is included where unambiguous (quiz attempt/window metadata, a single due timestamp, or targeted grading status).",
+    "Prior access-denied/403 page results are not inserted into the conversations because they would leak the authorization outcome being evaluated.",
+    "No expected PASS/FAIL labels are included in the model input."
+  ]
+}

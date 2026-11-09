@@ -132,12 +132,15 @@ def main():
         logger.error(f"Input directory does not exist: {args.input_dir}")
         sys.exit(1)
 
-    txt_files = [f for f in os.listdir(args.input_dir) if f.endswith(".txt")]
-    txt_files.sort(key=natural_sort_key)
+    test_files = [
+        f for f in os.listdir(args.input_dir)
+        if (f.endswith(".json") or f.endswith(".txt")) and f != "dynaguard_messages.json"
+    ]
+    test_files.sort(key=natural_sort_key)
 
-    total_cases = len(txt_files)
+    total_cases = len(test_files)
     if total_cases == 0:
-        logger.warning(f"No .txt test cases found in input directory: {args.input_dir}")
+        logger.warning(f"No test cases (.json or .txt) found in input directory: {args.input_dir}")
         print("Done. 0 test cases processed.")
         return
 
@@ -165,7 +168,7 @@ def main():
     skipped_count = 0
 
     # 3. Process test cases sequentially
-    for idx, filename in enumerate(txt_files, start=1):
+    for idx, filename in enumerate(test_files, start=1):
         case_stem = os.path.splitext(filename)[0]
         output_filename = f"{case_stem}_output.txt"
         output_filepath = os.path.join(args.output_dir, output_filename)
@@ -190,8 +193,12 @@ def main():
 
         try:
             # Read test case file in full, preserving original contents
-            with open(input_filepath, "r", encoding="utf-8") as f:
-                test_case_content = f.read()
+            if filename.endswith(".json"):
+                with open(input_filepath, "r", encoding="utf-8") as f:
+                    test_case_content = json.load(f)
+            else:
+                with open(input_filepath, "r", encoding="utf-8") as f:
+                    test_case_content = f.read()
 
             # Execute inference
             raw_response, sent_prompt, elapsed_time = run_inference_single(

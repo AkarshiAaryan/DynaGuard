@@ -239,6 +239,54 @@ class TestDynaGuardPipeline(unittest.TestCase):
             with open(out1, "r") as f:
                 self.assertEqual(f.read(), "RERUN_PASS")
 
+    @patch("main.load_model_and_tokenizer")
+    @patch("main.run_inference_single")
+    def test_chat_messages_json_pipeline_execution(self, mock_run_inference, mock_load_model):
+        """Verify pipeline execution with .json chat message array files (dynaguard_chat_messages format)."""
+        import sys
+        from main import main
+
+        mock_model = MagicMock()
+        mock_tokenizer = MagicMock()
+        mock_load_model.return_value = (mock_model, mock_tokenizer)
+
+        mock_run_inference.return_value = (
+            "<answer>PASS</answer>",
+            "<|im_start|>user\nPolicy...\n<|im_start|>assistant\n",
+            0.35,
+        )
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            in_dir = os.path.join(temp_dir, "dynaguard_chat_messages")
+            out_dir = os.path.join(temp_dir, "outputs")
+            sent_dir = os.path.join(temp_dir, "sent_prompts")
+            logs_dir = os.path.join(temp_dir, "logs")
+            run_log = os.path.join(logs_dir, "run_log.jsonl")
+
+            os.makedirs(in_dir)
+
+            # Create JSON test case with array of message dicts
+            messages_payload = [
+                {"role": "user", "content": "Policy: Rule 1\nHello"},
+                {"role": "assistant", "content": "Hi there"},
+            ]
+            with open(os.path.join(in_dir, "TC01_sample.json"), "w") as f:
+                json.dump(messages_payload, f)
+
+            with patch("config.RUN_LOG_PATH", run_log), \
+                 patch("config.LOGS_DIR", logs_dir), \
+                 patch.object(sys, "argv", ["main.py", "--input-dir", in_dir, "--output-dir", out_dir, "--sent-prompts-dir", sent_dir]):
+                main()
+
+            out_file = os.path.join(out_dir, "TC01_sample_output.txt")
+            self.assertTrue(os.path.exists(out_file))
+            with open(out_file, "r") as f:
+                self.assertEqual(f.read(), "<answer>PASS</answer>")
+
+            # Check that run_inference_single received the parsed list of messages
+            call_args = mock_run_inference.call_args[1]
+            self.assertEqual(call_args["test_case_content"], messages_payload)
+
 
 if __name__ == "__main__":
     unittest.main()

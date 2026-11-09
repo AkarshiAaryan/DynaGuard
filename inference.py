@@ -17,27 +17,31 @@ logger = logging.getLogger(__name__)
 
 
 def build_messages(
-    test_case_content: str,
+    test_case_content,
     system_instruction: Optional[str] = config.SYSTEM_INSTRUCTION,
 ) -> List[Dict[str, str]]:
-    """Build the chat messages list conforming to DynaGuard's chat template conventions.
+    """Build or normalize the chat messages list for DynaGuard.
 
     Args:
-        test_case_content: The full, unmodified string from the input .txt file.
+        test_case_content: Either an existing list of message dicts (from .json)
+            or a raw string (from .txt).
         system_instruction: Configurable system prompt.
 
     Returns:
         List of message dicts with role and content.
     """
+    if isinstance(test_case_content, list):
+        return test_case_content
+
     messages = []
     if system_instruction:
         messages.append({"role": "system", "content": system_instruction})
-    messages.append({"role": "user", "content": test_case_content})
+    messages.append({"role": "user", "content": str(test_case_content)})
     return messages
 
 
 def build_inference_prompt(
-    test_case_content: str,
+    test_case_content,
     tokenizer: AutoTokenizer,
     mode: str = config.INFERENCE_MODE,
     system_instruction: str = config.SYSTEM_INSTRUCTION,

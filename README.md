@@ -17,7 +17,8 @@ Dynaguard/
 ├── dynaguard_inference.ipynb # Interactive notebook (100% Kaggle & Google Colab compatible)
 ├── requirements.txt       # Dependencies (transformers, torch, accelerate)
 ├── README.md              # Documentation and usage guide
-├── dynaguard_inputs/      # 100 evaluation test cases (TC01_... to TC100_...)
+├── dynaguard_chat_messages/ # 100 benchmark test cases structured as JSON chat message arrays
+├── dynaguard_inputs/      # 100 benchmark test cases as plain text files
 ├── input_prompts/         # Sample .txt test cases (TC01.txt, TC02.txt, TC10.txt)
 ├── outputs/               # Authoritative raw generated model responses (TC01_output.txt, ...)
 ├── sent_prompts/          # Archived verbatim prompts sent to the model for reproducibility
@@ -60,7 +61,7 @@ All primary settings are managed in [`config.py`](config.py) and can also be ove
 | :--- | :--- | :--- |
 | `MODEL_ID` | `"tomg-group-umd/DynaGuard-8B"` | Hugging Face model repository or local path to model weights |
 | `INFERENCE_MODE` | `"fast"` | `"fast"` (direct `<answer>` prefix) or `"reasoning"` (`<think>` prefix) |
-| `INPUT_DIR` | `"dynaguard_inputs"` (or `"input_prompts"`) | Directory containing input `.txt` test case files |
+| `INPUT_DIR` | `"dynaguard_chat_messages"` | Directory containing test cases (supports `.json` message arrays & `.txt`) |
 | `OUTPUT_DIR` | `"outputs"` | Directory where raw generated outputs are saved |
 | `SENT_PROMPTS_DIR` | `"sent_prompts"` | Directory where exact prompts sent to the model are saved |
 | `MAX_NEW_TOKENS` | `256` | Maximum new tokens to generate |
@@ -72,19 +73,22 @@ All primary settings are managed in [`config.py`](config.py) and can also be ove
 
 ---
 
-## 3. Test Cases (`dynaguard_inputs/`)
+## 3. Test Cases (`dynaguard_chat_messages/` & `dynaguard_inputs/`)
 
-The repository includes 100 benchmark test cases in [`dynaguard_inputs/`](dynaguard_inputs/) (e.g. `TC01_student_own_grade.txt` ... `TC100_ta02_create_course_admin.txt`):
+The repository includes 100 benchmark test cases provided in two formats:
 
-```text
-dynaguard_inputs/
-    TC01_student_own_grade.txt
-    TC02_student_peer_grade.txt
-    ...
-    TC100_ta02_create_course_admin.txt
-```
-
-You can also place custom test cases in `input_prompts/` or specify any input folder via `--input-dir`.
+1. **`dynaguard_chat_messages/` (Recommended)**:
+   Individual JSON files (`TC01_student_own_grade.json` ... `TC100_ta02_create_course_admin.json`) containing the exact structured chat message arrays required by DynaGuard:
+   ```json
+   [
+     {"role": "user", "content": "Policy: ...\\nUser: ..."},
+     {"role": "assistant", "content": "..."},
+     ...
+     {"role": "assistant", "content": "I will attempt to view..."}
+   ]
+   ```
+2. **`dynaguard_inputs/`**:
+   Individual plain-text test case files (`TC01_student_own_grade.txt` ... `TC100_ta02_create_course_admin.txt`).
 
 ### File Format Requirements
 - Each file represents one complete test case.
