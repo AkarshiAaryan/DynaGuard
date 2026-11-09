@@ -48,6 +48,22 @@ def resolve_device_map(device_map_setting: str) -> Optional[str]:
     return device_map_setting
 
 
+def get_balanced_max_memory(headroom_ratio: float = 0.82) -> Optional[dict]:
+    """Calculate balanced max_memory mapping across available CUDA devices to reserve headroom and prevent OOM."""
+    if torch is None or not torch.cuda.is_available():
+        return None
+    num_gpus = torch.cuda.device_count()
+    if num_gpus < 1:
+        return None
+    max_memory = {}
+    for i in range(num_gpus):
+        vram_gb = torch.cuda.get_device_properties(i).total_memory / (1024**3)
+        usable_gb = max(1, int(vram_gb * headroom_ratio))
+        max_memory[i] = f"{usable_gb}GiB"
+    max_memory["cpu"] = "24GiB"
+    return max_memory
+
+
 def load_model_and_tokenizer(
     model_id_or_path: Optional[str] = None,
     device_map: Optional[str] = None,
@@ -105,9 +121,13 @@ def load_model_and_tokenizer(
     model_kwargs = {
         "torch_dtype": dtype,
         "trust_remote_code": True,
+        "low_cpu_mem_usage": True,
     }
     if dev_map is not None:
         model_kwargs["device_map"] = dev_map
+        max_mem = get_balanced_max_memory()
+        if max_mem:
+            model_kwargs["max_memory"] = max_mem
 
     try:
         model = AutoModelForCausalLM.from_pretrained(model_id, **model_kwargs)
