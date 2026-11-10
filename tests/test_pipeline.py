@@ -42,55 +42,52 @@ class TestDynaGuardPipeline(unittest.TestCase):
         self.assertEqual(sorted_padded, ["TC01.txt", "TC02.txt", "TC10.txt"])
 
     def test_prompt_construction_fast_mode(self):
-        """Verify prompt construction in fast mode uses <answer> generation prefix and preserves content."""
-        dummy_tokenizer = MagicMock()
-        dummy_tokenizer.chat_template = None  # test fallback/documented prompt template
-
-        sample_content = "Policy:\n1. Rule A\n\nConversation:\nUser: Hi\nAgent: Hello"
+        """Verify prompt construction in fast mode uses <answer> generation prefix and ## Policy / ## Dialogue structure."""
+        sample_content = "Policy: Rule A\n\nDialogue:\nUser: Hi\nAgent: Hello"
         prompt = build_inference_prompt(
             test_case_content=sample_content,
-            tokenizer=dummy_tokenizer,
             mode="fast",
         )
 
         self.assertIn("[INST]", prompt)
         self.assertIn("[/INST]", prompt)
-        self.assertIn(config.SYSTEM_INSTRUCTION, prompt)
-        self.assertIn(sample_content, prompt)
+        self.assertIn("## Policy", prompt)
+        self.assertIn("Rule A", prompt)
+        self.assertIn("## Dialogue", prompt)
+        self.assertIn("User: Hi", prompt)
+        self.assertIn("Agent: Hello", prompt)
         self.assertTrue(prompt.endswith("<answer>\n"))
 
     def test_prompt_construction_reasoning_mode(self):
         """Verify prompt construction in reasoning mode uses <think> generation prefix."""
-        dummy_tokenizer = MagicMock()
-        dummy_tokenizer.chat_template = None
-
-        sample_content = "Policy:\n1. Rule A\n\nConversation:\nUser: Hi\nAgent: Hello"
+        sample_content = "Policy: Rule A\n\nDialogue:\nUser: Hi\nAgent: Hello"
         prompt = build_inference_prompt(
             test_case_content=sample_content,
-            tokenizer=dummy_tokenizer,
             mode="reasoning",
         )
 
         self.assertIn("[INST]", prompt)
         self.assertIn("[/INST]", prompt)
-        self.assertIn(sample_content, prompt)
+        self.assertIn("## Policy", prompt)
+        self.assertIn("## Dialogue", prompt)
         self.assertTrue(prompt.endswith("<think>\n"))
 
-    def test_prompt_construction_with_chat_template(self):
-        """Verify prompt construction when tokenizer has a chat template."""
-        dummy_tokenizer = MagicMock()
-        dummy_tokenizer.chat_template = "{{ messages }}"
-        dummy_tokenizer.apply_chat_template.return_value = "<formatted_chat><answer>\n"
-
-        sample_content = "Policy:\n1. Rule A\n\nConversation:\nUser: Hi\nAgent: Hello"
+    def test_prompt_construction_with_json_messages(self):
+        """Verify prompt construction when passed an array of chat messages dicts."""
+        sample_messages = [
+            {"role": "user", "content": "Policy: Do not issue refunds.\n\nI want a refund."},
+            {"role": "assistant", "content": "I cannot issue a refund."},
+        ]
         prompt = build_inference_prompt(
-            test_case_content=sample_content,
-            tokenizer=dummy_tokenizer,
+            test_case_content=sample_messages,
             mode="fast",
         )
 
-        self.assertEqual(prompt, "<formatted_chat><answer>\n")
-        dummy_tokenizer.apply_chat_template.assert_called()
+        self.assertIn("[INST]", prompt)
+        self.assertIn("[/INST]", prompt)
+        self.assertIn("## Policy\nDo not issue refunds.", prompt)
+        self.assertIn("## Dialogue\nUser: I want a refund.\nAgent: I cannot issue a refund.", prompt)
+        self.assertTrue(prompt.endswith("<answer>\n"))
 
     def test_run_log_entry_schema(self):
         """Verify run_log.jsonl writes valid JSON lines with all required fields."""

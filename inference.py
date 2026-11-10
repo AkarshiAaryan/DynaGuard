@@ -1,7 +1,7 @@
 import logging
 import os
 import time
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Union
 
 try:
     import torch
@@ -16,66 +16,93 @@ import config
 logger = logging.getLogger(__name__)
 
 
-def build_messages(
-    test_case_content,
-    system_instruction: Optional[str] = config.SYSTEM_INSTRUCTION,
-) -> List[Dict[str, str]]:
-    """Build or normalize the chat messages list for DynaGuard.
+def extract_policy_and_dialogue(content: Union[List[Dict[str, str]], str]) -> Tuple[str, str]:
+    """Extract policy rules and dialogue from either a list of chat message dicts or a raw text string.
 
     Args:
-        test_case_content: Either an existing list of message dicts (from .json)
-            or a raw string (from .txt).
-        system_instruction: Configurable system prompt.
+        content: Either a list of message dicts (from .json) or a raw text string (from .txt).
 
     Returns:
-        List of message dicts with role and content.
+        Tuple of (policy_string, dialogue_string).
     """
-    if isinstance(test_case_content, list):
-        return test_case_content
+    if isinstance(content, list):
+        if not content:
+            return "", ""
+        first_content = content[0].get("content", "")
+        if "Policy:" in first_content:
+            parts = first_content.split("\n\n", 1)
+            policy = parts[0].replace("Policy:", "").strip()
+            user_start = parts[1].strip() if len(parts) > 1 else ""
+        else:
+            policy = ""
+            user_start = first_content
 
-    messages = []
-    if system_instruction:
-        messages.append({"role": "system", "content": system_instruction})
-    messages.append({"role": "user", "content": str(test_case_content)})
-    return messages
+        dialogue_lines = []
+        if user_start:
+            dialogue_lines.append(f"User: {user_start}")
+
+        for turn in content[1:]:
+            role = "User" if turn.get("role", "").lower() == "user" else "Agent"
+            dialogue_lines.append(f"{role}: {turn.get('content', '')}")
+
+        return policy, "\n".join(dialogue_lines)
+    else:
+        text = str(content)
+        if "Dialogue:" in text:
+            parts = text.split("Dialogue:", 1)
+            return parts[0].replace("Policy:", "").strip(), parts[1].strip()
+        elif "Policy:" in text:
+            parts = text.split("\n\n", 1)
+            return parts[0].replace("Policy:", "").strip(), (parts[1].strip() if len(parts) > 1 else "")
+        return "", text
 
 
 def build_inference_prompt(
-    test_case_content,
-    tokenizer: AutoTokenizer,
+    test_case_content: Union[List[Dict[str, str]], str],
+    tokenizer: Optional[AutoTokenizer] = None,
     mode: str = config.INFERENCE_MODE,
-    system_instruction: str = config.SYSTEM_INSTRUCTION,
 ) -> str:
-    """Construct the exact prompt string to be sent to DynaGuard.
+    """Construct the exact prompt format required by DynaGuard.
 
-    Preserves the test case content completely unmodified.
-    Applies the model's tokenizer chat template where available.
+    Supported Modes:
+    - 'fast': Direct compliance evaluation ending with <answer>
+    - 'reasoning' (or 'cot'): Step-by-step thinking ending with <think>
+
+    Format:
+    [INST]
+    Evaluate the following dialogue for compliance with the given policy. Provide the final answer directly.
+
+    ## Policy
+    {policy}
+
+    ## Dialogue
+    {dialogue}
+    [/INST]
+    <answer>
     """
-    messages = build_messages(test_case_content, system_instruction=system_instruction)
+    policy, dialogue = extract_policy_and_dialogue(test_case_content)
 
-    if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
-        try:
-            return tokenizer.apply_chat_template(
-                messages,
-                add_generation_prompt=True,
-                tokenize=False,
-            )
-        except Exception:
-            pass
+    if mode.lower() in ("reasoning", "cot"):
+        instruction = "Evaluate the following dialogue for compliance with the given policy. First, think through your reasoning step-by-step. Then, provide the final answer."
+        suffix = "<think>\n"
+    else:
+        instruction = "Evaluate the following dialogue for compliance with the given policy. Provide the final answer directly."
+        suffix = "<answer>\n"
 
-    # Fallback to documented [INST] prompt format when no chat template is available
-    prefix = "<answer>\n" if mode.lower() == "fast" else "<think>\n"
-    return (
-        f"[INST]\n"
-        f"{system_instruction}\n\n"
-        f"{test_case_content}\n"
-        f"[/INST]\n"
-        f"{prefix}"
-    )
+    return f"""[INST]
+{instruction}
+
+## Policy
+{policy}
+
+## Dialogue
+{dialogue}
+[/INST]
+{suffix}"""
 
 
 def run_inference_single(
-    test_case_content: str,
+    test_case_content: Union[List[Dict[str, str]], str],
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
     mode: str = config.INFERENCE_MODE,
@@ -86,11 +113,8 @@ def run_inference_single(
 ) -> Tuple[str, str, float]:
     """Execute inference for a single test case using DynaGuard's prompting format.
 
-    Uses `tokenizer.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, ...)`
-    and decodes only newly generated tokens: `outputs[0][inputs['input_ids'].shape[-1]:]`.
-
     Args:
-        test_case_content: Full unmodified test case text.
+        test_case_content: Test case message list (from .json) or raw text (from .txt).
         model: Loaded DynaGuard model.
         tokenizer: Loaded DynaGuard tokenizer.
         mode: 'fast' or 'reasoning'.
@@ -108,48 +132,29 @@ def run_inference_single(
             "Please install dependencies with: pip install -r requirements.txt"
         )
 
-    messages = build_messages(
-        test_case_content=test_case_content,
-        system_instruction=config.SYSTEM_INSTRUCTION,
-    )
-
-    # Standard DynaGuard chat template invocation matching Hugging Face documentation
-    if hasattr(tokenizer, "apply_chat_template") and tokenizer.chat_template:
-        inputs = tokenizer.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
-            tokenize=True,
-            return_dict=True,
-            return_tensors="pt",
-        ).to(model.device)
-        full_prompt = tokenizer.decode(inputs["input_ids"][0], skip_special_tokens=False)
-    else:
-        full_prompt = build_inference_prompt(
-            test_case_content=test_case_content,
-            tokenizer=tokenizer,
-            mode=mode,
-        )
-        inputs = tokenizer(full_prompt, return_tensors="pt").to(model.device)
-
+    full_prompt = build_inference_prompt(test_case_content, tokenizer=tokenizer, mode=mode)
+    inputs = tokenizer(full_prompt, return_tensors="pt").to(model.device)
     prompt_length = inputs["input_ids"].shape[-1]
 
     generate_kwargs = {
         **inputs,
         "max_new_tokens": max_new_tokens,
-        "do_sample": do_sample,
         "pad_token_id": tokenizer.pad_token_id,
     }
 
     if do_sample and temperature > 0.0:
+        generate_kwargs["do_sample"] = True
         generate_kwargs["temperature"] = temperature
         generate_kwargs["top_p"] = top_p
+    else:
+        generate_kwargs["do_sample"] = False
 
     start_time = time.perf_counter()
     with torch.no_grad():
         outputs = model.generate(**generate_kwargs)
     elapsed_time = time.perf_counter() - start_time
 
-    # Decode only newly generated tokens: outputs[0][inputs["input_ids"].shape[-1]:]
+    # Decode only newly generated tokens
     newly_generated_ids = outputs[0][prompt_length:]
     raw_generated_text = tokenizer.decode(
         newly_generated_ids,
