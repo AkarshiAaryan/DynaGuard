@@ -41,10 +41,11 @@ RUN_LOG_PATH = os.path.join(LOGS_DIR, "run_log.jsonl")
 # - "reasoning": Uses <think> generation prefix for chain-of-thought reasoning
 INFERENCE_MODE = "fast"
 
-MAX_NEW_TOKENS = 256
-TEMPERATURE = 0.0  # 0.0 for greedy decoding / deterministic evaluation
+MAX_NEW_TOKENS = 100
+TEMPERATURE = 0.1
 TOP_P = 0.95
-DO_SAMPLE = False
+DO_SAMPLE = True
+REPETITION_PENALTY = 1.15  # Prevents degenerate repetition loops
 
 # ==============================================================================
 # DynaGuard System Instruction

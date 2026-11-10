@@ -110,6 +110,7 @@ def run_inference_single(
     temperature: float = config.TEMPERATURE,
     top_p: float = config.TOP_P,
     do_sample: bool = config.DO_SAMPLE,
+    repetition_penalty: float = config.REPETITION_PENALTY,
 ) -> Tuple[str, str, float]:
     """Execute inference for a single test case using DynaGuard's prompting format.
 
@@ -122,6 +123,7 @@ def run_inference_single(
         temperature: Sampling temperature.
         top_p: Nucleus sampling probability.
         do_sample: Whether to sample.
+        repetition_penalty: Penalty factor to break repetitive looping.
 
     Returns:
         Tuple of (raw_generated_text, full_prompt, inference_time_seconds).
@@ -140,6 +142,8 @@ def run_inference_single(
         **inputs,
         "max_new_tokens": max_new_tokens,
         "pad_token_id": tokenizer.pad_token_id,
+        "eos_token_id": tokenizer.eos_token_id,
+        "repetition_penalty": repetition_penalty,
     }
 
     if do_sample and temperature > 0.0:
