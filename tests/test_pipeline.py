@@ -261,6 +261,69 @@ class TestDynaGuardPipeline(unittest.TestCase):
             self.assertTrue(os.path.exists(os.path.join(temp_dir, "all_outputs.csv")))
             self.assertTrue(os.path.exists(os.path.join(temp_dir, "all_outputs.json")))
 
+    @patch("main.load_model_and_tokenizer")
+    @patch("main.run_inference_single")
+    def test_resume_logic_skips_only_valid(self, mock_run_inference, mock_load_model):
+        """Verify that resume logic skips VALID cached outputs but re-evaluates INVALID outputs."""
+        import sys
+        from main import main
+
+        mock_model = MagicMock()
+        mock_tokenizer = MagicMock()
+        mock_load_model.return_value = (mock_model, mock_tokenizer)
+
+        # Mock inference should only be called once: for TC02 (which had invalid output)
+        mock_run_inference.return_value = {
+            "test_case_id": "TC02",
+            "full_prompt": "Prompt 2",
+            "raw_generated_text": "FAIL</answer>",
+            "prediction": "FAIL",
+            "validity_status": "VALID",
+            "inference_time": 0.4,
+            "prompt_token_count": 80,
+            "generated_token_count": 3,
+            "tokens_per_second": 7.5,
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            in_dir = os.path.join(temp_dir, "input_prompts")
+            out_dir = os.path.join(temp_dir, "outputs")
+            sent_dir = os.path.join(temp_dir, "sent_prompts")
+            logs_dir = os.path.join(temp_dir, "logs")
+            gt_path = os.path.join(temp_dir, "ground_truth.csv")
+
+            os.makedirs(in_dir)
+            os.makedirs(out_dir)
+
+            with open(os.path.join(in_dir, "TC01.json"), "w") as f:
+                json.dump([{"role": "user", "content": "Policy: P\nDialogue"}], f)
+            with open(os.path.join(in_dir, "TC02.json"), "w") as f:
+                json.dump([{"role": "user", "content": "Policy: P\nDialogue"}], f)
+
+            # TC01 has a VALID existing output -> should be SKIPPED
+            with open(os.path.join(out_dir, "TC01_output.txt"), "w") as f:
+                f.write("<answer>PASS</answer>")
+
+            # TC02 has an INVALID existing output (stale rambling output) -> should NOT be skipped!
+            with open(os.path.join(out_dir, "TC02_output.txt"), "w") as f:
+                f.write("I will attempt to view your grade.")
+
+            with open(gt_path, "w", encoding="utf-8") as f:
+                f.write("case_id,input_file,expected_decision,expected_label\n")
+                f.write("TC01,TC01.json,ALLOW,no_violation\n")
+                f.write("TC02,TC02.json,BLOCK,violation\n")
+
+            with patch("config.RUN_LOG_PATH", os.path.join(logs_dir, "run_log.jsonl")), \
+                 patch("config.LOGS_DIR", logs_dir), \
+                 patch("config.GROUND_TRUTH_PATH", gt_path), \
+                 patch("config.CONSOLIDATED_CSV_PATH", os.path.join(temp_dir, "all_outputs.csv")), \
+                 patch("config.CONSOLIDATED_JSON_PATH", os.path.join(temp_dir, "all_outputs.json")), \
+                 patch.object(sys, "argv", ["main.py", "--input-dir", in_dir, "--output-dir", out_dir, "--sent-prompts-dir", sent_dir]):
+                main()
+
+            # TC02 was re-run because it had invalid output; TC01 was skipped because it had valid output
+            self.assertEqual(mock_run_inference.call_count, 1)
+
 
 if __name__ == "__main__":
     unittest.main()

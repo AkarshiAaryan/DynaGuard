@@ -278,20 +278,26 @@ def main():
         input_filepath = os.path.join(args.input_dir, filename)
 
         if not args.rerun and os.path.exists(output_filepath) and os.path.getsize(output_filepath) > 0:
-            print(f"[{idx}/{total_cases}] {filename} -> SKIPPED (output exists)")
-            skipped_count += 1
             with open(output_filepath, "r", encoding="utf-8") as rf:
                 raw_out = rf.read()
             pred, val_status = parse_verdict(raw_out)
-            all_case_records.append({
-                "test_case_id": case_id,
-                "input_filename": filename,
-                "prediction": pred,
-                "validity_status": val_status,
-                "raw_output": raw_out,
-                "inference_time": 0.0,
-            })
-            continue
+            if val_status == "VALID":
+                print(f"[{idx}/{total_cases}] {filename} -> SKIPPED (already evaluated: {pred})")
+                skipped_count += 1
+                all_case_records.append({
+                    "test_case_id": case_id,
+                    "input_filename": filename,
+                    "prediction": pred,
+                    "validity_status": val_status,
+                    "raw_output": raw_out,
+                    "inference_time": 0.0,
+                    "prompt_token_count": 0,
+                    "generated_token_count": 0,
+                    "tokens_per_second": 0.0,
+                })
+                continue
+            else:
+                logger.info(f"Existing output for {filename} is {pred}; re-running inference.")
 
         print(f"[{idx}/{total_cases}] Processing {filename} ... ", end="", flush=True)
 
